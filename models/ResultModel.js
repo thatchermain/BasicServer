@@ -5,6 +5,10 @@ const ResultSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  region: {
+    type: String,
+    required: true,
+  },
   numberOfQuestionsAnswered: {
     type: Number,
     required: true,
@@ -18,7 +22,7 @@ const ResultSchema = new mongoose.Schema({
     required: true,
   },
   score: {
-    type: Number,
+    type: String,
     required: true,
   },
 });
