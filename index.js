@@ -23,15 +23,18 @@ mongoose.connect(process.env.MONGO, {}).then(console.log('Connected to DB'));
 //
 
 app.post('/sendResults', async (req, res) => {
-  const newResult = new ResultModel({
-    user: req.body.user,
-    region: req.body.region,
-    numberOfQuestionsAnswered: req.body.numberOfQuestionsAnswered,
-    correctAnswer: req.body.correctAnswer,
-    wrongAnswer: req.body.wrongAnswer,
-    score: req.body.score,
-  });
-  console.log(newResult);
+  const receivedData = req.body.finalData;
+  const newResult = new ResultModel(
+    receivedData
+    // user: req.body.user,
+    // region: req.body.region,
+    // allQuestions: req.body.allQuestions,
+    // numberOfQuestionsAnswered: req.body.numberOfQuestionsAnswered,
+    // correctAnswer: req.body.correctAnswer,
+    // wrongAnswer: req.body.wrongAnswer,
+    // score: req.body.score,
+  );
+  console.log(receivedData);
   newResult.save();
 });
 

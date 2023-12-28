@@ -1,30 +1,22 @@
 import mongoose, { Schema } from 'mongoose';
 
+const answerSchema = new Schema({
+  answerId: String,
+  answerText: String,
+  isCorrect: Boolean,
+});
+
+const questionSchema = new Schema({
+  questionText: String,
+  answerId: String,
+  answerText: String,
+  isCorrect: Boolean,
+});
+
 const ResultSchema = new mongoose.Schema({
-  user: {
-    type: String,
-    required: true,
-  },
-  region: {
-    type: String,
-    required: true,
-  },
-  numberOfQuestionsAnswered: {
-    type: Number,
-    required: true,
-  },
-  correctAnswer: {
-    type: Number,
-    required: true,
-  },
-  wrongAnswer: {
-    type: Number,
-    required: true,
-  },
-  score: {
-    type: String,
-    required: true,
-  },
+  user: String,
+  region: String,
+  allQuestions: [questionSchema],
 });
 
 export const ResultModel = mongoose.model('results', ResultSchema);
