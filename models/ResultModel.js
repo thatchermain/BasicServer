@@ -16,6 +16,7 @@ const questionSchema = new Schema({
 const ResultSchema = new mongoose.Schema({
   user: String,
   region: String,
+  score: Number,
   allQuestions: [questionSchema],
 });
 
