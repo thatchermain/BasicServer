@@ -17,6 +17,7 @@ const ResultSchema = new mongoose.Schema({
   user: String,
   region: String,
   score: Number,
+  procentage: Number,
   allQuestions: [questionSchema],
 });
 
